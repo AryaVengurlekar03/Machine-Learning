@@ -1,0 +1,16 @@
+{
+  "task": "ML-07 Baseline Action Score",
+  "lane": "Lane 4 \u2014 CTR / Engagement Opportunity Scoring",
+  "rule_name": "Position-Peer CTR Opportunity Heuristic",
+  "reason_code": "CTR_BELOW_POSITION_PEER",
+  "action_label": "OPTIMIZE_TITLE_META_SNIPPET",
+  "total_pages_evaluated": 28795,
+  "actionability_threshold_missed_clicks": 10.0,
+  "base_rate": 0.0152,
+  "precision_at_10": 1.0,
+  "precision_at_20": 1.0,
+  "precision_at_50": 1.0,
+  "precision_at_100": 1.0,
+  "top_10_total_missed_clicks": 2082.37,
+  "top_50_total_missed_clicks": 5437.75
+}
