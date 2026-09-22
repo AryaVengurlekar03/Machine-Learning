@@ -96,7 +96,22 @@ The `.gitignore` blocks datasets by default, and CI fails any commit that includ
 
 ---
 
+## AI Agent MVP (FL-06 / Week 6)
+
+The repository includes the autonomous **Source-Grounded Study Notes AI Agent** MVP specified in FL-06.
+
+### Run the Agent Locally:
+```bash
+python scripts/fl06_agent.py --input docs/data-dictionary.md --output outputs/study_notes_output.md
+```
+
+- **Core Job:** Reads technical document, executes tool calls (`inspect_document_structure`, `read_source_document`, `extract_technical_pillars`), conducts adversarial grounding audit (`audit_grounding_score`), and outputs verified markdown study notes.
+- **Build Log:** Full development details & test receipt available at [`docs/BUILD_LOG.md`](docs/BUILD_LOG.md).
+
+---
+
 ## Assignments & schedule
+
 
 Weekly assignments, live events, and the capstone live on **your portal board** (your
 enrollment email has your access link). This repo is the shared technical foundation they all
