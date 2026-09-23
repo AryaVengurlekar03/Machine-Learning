@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arya Vengurlekar — CV / Resume</title>
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F8FAFC;
+            --text-primary: #111827;
+            --text-secondary: #1E293B;
+            --accent: #2563EB;
+            --card-bg: #FFFFFF;
+            --border-color: #E2E8F0;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 3rem 1.5rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        nav {
+            margin-bottom: 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .monogram {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3.25rem;
+            height: 3.25rem;
+            background-color: var(--text-secondary);
+            color: var(--bg);
+            font-weight: 700;
+            font-size: 1.125rem;
+            letter-spacing: 0.05em;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: #475569;
+        }
+
+        .contact-bar a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-bar a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .entry {
+            margin-bottom: 1.75rem;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .entry-title {
+            font-size: 1.0625rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .entry-subtitle {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .entry-date {
+            font-size: 0.875rem;
+            color: #64748B;
+            font-weight: 500;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 1.25rem;
+            font-size: 0.9375rem;
+            color: #334155;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+
+        .skill-card h3 {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .skill-card p {
+            font-size: 0.875rem;
+            color: #475569;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            font-size: 0.875rem;
+            color: #64748B;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1.75rem 1.25rem;
+            }
+            h1 {
+                font-size: 1.625rem;
+            }
+            .header-top {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        </nav>
+
+        <header>
+            <div class="header-top">
+                <div>
+                    <div class="monogram">AV</div>
+                    <h1>Arya Vengurlekar</h1>
+                    <div class="subtitle">Machine Learning & Search Intelligence Engineer</div>
+                </div>
+            </div>
+            <div class="contact-bar">
+                <span>📍 Location: India</span>
+                <span>💻 GitHub: <a href="https://github.com/AryaVengurlekar03" target="_blank" rel="noopener">AryaVengurlekar03</a></span>
+                <span>🔗 LinkedIn: <a href="https://linkedin.com/in/aryavengurlekar" target="_blank" rel="noopener">aryavengurlekar</a></span>
+                <span>📅 Booking: <a href="https://cal.com/aryavengurlekar" target="_blank" rel="noopener">cal.com/aryavengurlekar</a></span>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <h2>Executive Summary</h2>
+                <p style="font-size: 0.9375rem; color: #334155;">
+                    Computer Science student and ML intern at FlyRank specializing in search intelligence, data pipelines, and decision-support ML models. Proven experience in position-aware ranking systems, leakage-safe data pipeline construction, DuckDB data warehouse processing, and real-time backend software development.
+                </p>
+            </section>
+
+            <section>
+                <h2>Experience</h2>
+                <div class="entry">
+                    <div class="entry-header">
+                        <div>
+                            <span class="entry-title">FlyRank</span> — <span class="entry-subtitle">Machine Learning Intern</span>
+                        </div>
+                        <span class="entry-date">March 2026 – Present</span>
+                    </div>
+                    <ul>
+                        <li>Engineered position-aware ML search content refresh opportunity models over a DuckDB data warehouse covering 340k+ content pieces across 57 client datasets.</li>
+                        <li>Boosted reviewer Precision@50 from 0.24 (static rule baseline) to 0.74 using Random Forest and Logistic Regression models.</li>
+                        <li>Implemented strict anti-leakage feature verification, excluding label-derived fields (e.g., trend_direction, trend_pct) to guarantee out-of-sample validity.</li>
+                        <li>Built end-to-end reproducible data pipelines, action playbooks, and validation audit frameworks.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Key Projects</h2>
+                <div class="entry">
+                    <div class="entry-header">
+                        <span class="entry-title">FlyRank Search Content Refresh Opportunity Model</span>
+                        <span class="entry-date">Lead Capstone Project</span>
+                    </div>
+                    <ul>
+                        <li>Developed a decision-support ML pipeline prioritizing content refresh candidates based on traffic decay and position tiers.</li>
+                        <li>Achieved 3x higher reviewer precision than standard heuristic rules on client holdout evaluation sets.</li>
+                    </ul>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <span class="entry-title">Binance Futures Algorithmic Trading Bot</span>
+                        <span class="entry-date">Systems Engineering Project</span>
+                    </div>
+                    <ul>
+                        <li>Built a real-time futures execution engine integrating Binance REST & WebSocket APIs with strict risk management safety stops.</li>
+                        <li>Designed robust CLI scaffolding, automated order logic, and backtest performance logging.</li>
+                    </ul>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <span class="entry-title">E-Commerce Customer Segmentation Analysis</span>
+                        <span class="entry-date">Data Science Project</span>
+                    </div>
+                    <ul>
+                        <li>Performed unsupervised learning (K-Means clustering and PCA dimension reduction) to identify high-value customer cohorts.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Machine Learning & Data</h3>
+                        <p>Python, pandas, scikit-learn, DuckDB, Feature Engineering, Leakage Safety, Precision@K, ROC-AUC</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Systems & Backend</h3>
+                        <p>Binance REST/WebSocket API, Data Warehouse Pipelines, CLI Scaffolding, Git/CI Automation</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Workflow & Web</h3>
+                        <p>HTML5, CSS3, JavaScript, Grounded AI Prompt Chains, Markdown Documentation</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Education</h2>
+                <div class="entry">
+                    <div class="entry-header">
+                        <div>
+                            <span class="entry-title">B.S. in Computer Science</span>
+                        </div>
+                        <span class="entry-date">Expected Graduation: 2027</span>
+                    </div>
+                    <p style="font-size: 0.9375rem; color: #475569;">Focus on Machine Learning, Data Structures & Algorithms, and Distributed Systems.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <span>© 2026 Arya Vengurlekar</span>
+            <a href="index.html" class="back-link">← Return to Main Site</a>
+        </footer>
+    </div>
+</body>
+</html>
