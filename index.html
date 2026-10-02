@@ -452,7 +452,8 @@
             text-align: center;
         }
 
-        .contact-card h2 {
+        .contact-card h2,
+        .contact-card h3 {
             font-size: 1.625rem;
             font-weight: 800;
             margin-bottom: 0.75rem;
@@ -662,12 +663,17 @@
             }
             .nav-bar {
                 margin-bottom: 2rem;
+                flex-wrap: wrap;
+                gap: 1rem;
             }
             .nav-links {
-                gap: 0.75rem;
+                gap: 0.5rem 0.875rem;
+                flex-wrap: wrap;
             }
             .nav-links a {
                 font-size: 0.875rem;
+                padding: 0.35rem 0.4rem;
+                display: inline-block;
             }
             h1 {
                 font-size: 1.625rem;
@@ -702,7 +708,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="resume.html">CV / Resume</a></li>
-                <li><a href="https://cal.com/aryavengurlekar" target="_blank" rel="noopener" class="nav-cta">Book Call</a></li>
+                <li><a href="#contact" class="nav-cta">Book Call</a></li>
             </ul>
         </nav>
 
@@ -909,7 +915,7 @@
                 </div>
 
                 <div class="contact-card">
-                    <h2>Send a Message</h2>
+                    <h3>Send a Message</h3>
                     <p>
                         Have a question about my machine learning models, search intelligence pipelines, or potential engineering roles? Send me a message below and I'll get back to you directly.
                     </p>
@@ -948,7 +954,7 @@
                     </form>
 
                     <div class="button-group" style="margin-top: 1.5rem;">
-                        <a href="https://cal.com/aryavengurlekar" target="_blank" rel="noopener" class="btn btn-secondary">
+                        <a href="#contact" class="btn btn-secondary">
                             📅 Book 15-Min Technical Call
                         </a>
                         <a href="resume.html" class="btn btn-secondary">
