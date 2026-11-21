@@ -1,4 +1,4 @@
-# Week 10 — Portfolio Maintenance & Future Case Studies
+# Week 10 — Keep Building: Portfolio Maintenance
 
 **Author:** Arya Vengurlekar
 **Portfolio URL:** `https://aryavengurlekar03.github.io/Machine-Learning/`
@@ -7,66 +7,102 @@
 
 ---
 
-## 1. Where the Next Case Study Will Go
+## 1. Where the Next Case Study Goes
 
-The portfolio is a single-page site served from `index.html` at the repository root via GitHub Pages. All projects live in the **"Featured Projects & Case Studies"** section (`<section id="work">`), which currently contains three `<article class="project-card">` blocks:
+My portfolio is a single-page website served from `index.html` at the repository root via GitHub Pages. All projects are displayed inside the **"Featured Projects & Case Studies"** section, identified by `<section id="work">`.
 
-| # | Project | Card class | Lines in `index.html` |
-|---|---------|------------|-----------------------|
-| 1 | FlyRank Search Content Refresh Opportunity Model | `project-card featured` | ~760–800 |
-| 2 | Binance Futures Algorithmic Trading Bot | `project-card` | ~802–824 |
-| 3 | E-Commerce Customer Segmentation Analysis | `project-card` | ~826–848 |
+### Portfolio project listing section
 
-**Where the next case study goes:**
+The `<section id="work">` block in `index.html` contains a `section-header` with the title **"Featured Projects & Case Studies"**, followed by individual `<article class="project-card">` blocks — one per project. The section currently holds three project cards:
 
-- **Portfolio website (`index.html`):** Add a new `<article class="project-card">` block inside the `<section id="work">` container, after the existing three project cards and before the closing `</section>` tag (currently at line ~849). Follow the same HTML structure used by the existing cards (project-header, project-tag, project-title, project-desc, tech-pills, project-link).
+| # | Project | Card class | Location in `index.html` |
+|---|---------|------------|--------------------------|
+| 1 | FlyRank Search Content Refresh Opportunity Model | `project-card featured` | Lines ~760–800 |
+| 2 | Binance Futures Algorithmic Trading Bot | `project-card` | Lines ~802–824 |
+| 3 | E-Commerce Customer Segmentation Analysis | `project-card` | Lines ~826–848 |
 
-- **GitHub repository:** The project's code, notebooks, and data belong in the existing directory structure:
-  - Notebooks → `work/notebooks/` (e.g., `work/notebooks/quantum_autoencoder.ipynb`)
-  - Figures/charts → `work/figures/`
-  - Scripts → `scripts/`
-  - Documentation → `docs/`
-  - If the project warrants a standalone HTML write-up (like `paper.html`), place it at the repository root alongside the existing pages.
+The next case study card will be inserted as a new `<article class="project-card">` block after the last existing `</article>` tag and before the `</section>` closing tag at line ~849.
 
-- **Sitemap (`sitemap.xml`):** Add a `<url>` entry for any new standalone HTML page.
+### HTML file where the project card should be added
 
-- **Navigation (`index.html` nav bar):** If the case study gets its own HTML page, add a link in the `<ul class="nav-links">` block (lines ~719–727). Otherwise, the `#work` anchor already covers it.
+**`index.html`** (repository root) — inside `<section id="work">`.
+
+If the case study warrants a full standalone write-up page (similar to the existing `paper.html` research paper), create a new HTML file at the repository root (e.g., `quantum-autoencoder.html`) and link to it from the project card.
+
+### Supporting files and folders
+
+| Content type | Destination path |
+|-------------|-----------------|
+| Jupyter notebooks | `work/notebooks/` (e.g., `work/notebooks/quantum_autoencoder.ipynb`) |
+| Generated figures & charts | `work/figures/` |
+| Python scripts | `scripts/` |
+| Documentation & case study write-up | `docs/` |
+| Pipeline outputs & exports | `work/outputs/` or `outputs/` |
+| Standalone HTML write-up | Repository root (e.g., `quantum-autoencoder.html`) |
+
+### CSS and design structure to follow
+
+All styles are defined inline within the `<style>` block in `index.html`. The design system uses these CSS custom properties:
+
+| Variable | Value | Purpose |
+|----------|-------|---------|
+| `--font-family` | `'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif` | Primary typeface |
+| `--accent` | `#2563EB` | Link color, badges, metric values |
+| `--accent-hover` | `#1D4ED8` | Hover state for links and buttons |
+| `--accent-light` | `#EFF6FF` | Tag/badge backgrounds |
+| `--bg` | `#F8FAFC` | Page background |
+| `--card-bg` | `#FFFFFF` | Card backgrounds |
+| `--text-primary` | `#0F172A` | Headings |
+| `--text-secondary` | `#334155` | Body text |
+| `--text-muted` | `#64748B` | Captions and labels |
+| `--border-color` | `#E2E8F0` | Card borders |
+| `--shadow-sm` | `0 1px 2px 0 rgba(0,0,0,0.05)` | Card shadow |
+
+Cards use `border-radius: 0.875rem`, padding of `1.75rem`, and `margin-bottom: 1.5rem`. Technology labels use the `tech-pill` class (`background: #F1F5F9; color: #475569; border-radius: 0.375rem`). The mobile breakpoint is `@media (max-width: 640px)`.
+
+A standalone HTML page should include the same `<style>` block, `<nav class="nav-bar">` navigation, and `<footer>` as `index.html` for visual consistency.
+
+### Navigation and sitemap changes
+
+- **Navigation bar (`index.html`, lines ~719–727):** If a standalone HTML page is created for the case study, add a `<li><a href="quantum-autoencoder.html">` entry inside the `<ul class="nav-links">` block. If the project is only a card within `<section id="work">`, no nav changes are needed — the existing `<a href="#work">Work</a>` link already covers it.
+- **Sitemap (`sitemap.xml`):** Add a new `<url>` entry for any standalone HTML page. The sitemap currently lists `index.html` and `resume.html`.
+- **Open Graph metadata:** Any new standalone page should include `og:title`, `og:description`, `og:type`, and `og:url` meta tags matching the existing pattern in `index.html`.
 
 ---
 
-## 2. The Three-Beat Case Study Format
+## 2. My Case Study Format
 
-Every case study follows this structure, adapted from the Week 2 problem-framing methodology:
+Every case study follows the **three-beat structure** established in Week 2:
 
-### Beat 1 — Problem
+### Problem
 
-What problem was I trying to solve? Who needed it solved, and why did it matter?
+- What problem was I trying to solve?
+- Who experiences this problem and is affected by it?
+- Why does it matter — what is the cost of leaving it unsolved?
 
-- State the real-world pain point or opportunity.
-- Identify the specific audience (team, users, stakeholders).
-- Explain why existing solutions were insufficient.
+State the real-world pain point, name the audience (users, teams, researchers, stakeholders), and explain why existing approaches are insufficient.
 
-### Beat 2 — What I Did
+### What I Did
 
-What approach, tools, technical decisions, and implementation did I use?
+- What approach did I take (methodology, architecture, pipeline)?
+- What tools, technologies, models, and methods did I use?
+- What important technical decisions did I make, and why?
+- How did I validate my results to ensure they were honest and reproducible?
 
-- Describe the methodology, architecture, and key design choices.
-- List the technology stack and frameworks used.
-- Explain critical trade-offs and why I made them.
-- Note the validation strategy and how I ensured honest results.
+Describe the full implementation: data sources, feature engineering, model selection, evaluation strategy, and key trade-offs.
 
-### Beat 3 — What Came of It
+### What Came of It
 
-What was the result? What worked, what didn't, and what did I learn?
+- What results did I achieve (specific metrics, quantitative evidence)?
+- What worked and what didn't?
+- What did I learn from building this?
+- What would I improve or do differently next time?
 
-- Present quantitative results with specific metrics.
-- Acknowledge limitations and what fell short.
-- State what I would do differently next time.
-- Identify concrete next steps or future work.
+Present results honestly, acknowledge limitations, and identify concrete next steps.
 
 ---
 
-### Copy-Paste Template
+### Reusable Copy-Paste Template
 
 ```markdown
 # [Project Title]
@@ -74,7 +110,7 @@ What was the result? What worked, what didn't, and what did I learn?
 **Status:** [Completed / In Progress / Planned]
 **Date:** [Month Year]
 **Repository:** [GitHub URL]
-**Live Demo:** [URL or "N/A"]
+**Live Demo:** [URL or N/A]
 
 ---
 
@@ -82,136 +118,172 @@ What was the result? What worked, what didn't, and what did I learn?
 
 <!-- What problem was I trying to solve? Who needed it and why? -->
 
-[Describe the real-world problem. Who is affected? Why do existing
-approaches fail or fall short?]
+[Describe the real-world problem in 2–3 sentences. Name the specific
+audience affected. Explain why existing solutions are insufficient
+or why this problem matters.]
 
 ---
 
 ## What I Did
 
-<!-- What approach, tools, technical decisions, and implementation did I use? -->
+<!-- What approach, tools, decisions, and implementation did I use? -->
 
-**Approach:** [Methodology summary — e.g., supervised learning, quantum
-circuit design, unsupervised clustering]
+**Approach:** [1–2 sentence methodology summary]
 
-**Tech Stack:** [e.g., Python, PennyLane, scikit-learn, TensorFlow Quantum]
+**Tech Stack:**
+- [Language / framework]
+- [Libraries / tools]
+- [Data source]
 
-**Key Decisions:**
-- [Decision 1 and rationale]
-- [Decision 2 and rationale]
+**Key Technical Decisions:**
+1. [Decision and rationale]
+2. [Decision and rationale]
+3. [Decision and rationale]
 
-**Validation Strategy:** [How I ensured honest, reproducible results]
+**Validation Strategy:** [How I ensured honest, reproducible results —
+e.g., holdout split, cross-validation, leakage audit]
 
 ---
 
 ## What Came of It
 
-<!-- What was the result? What worked, what didn't, and what did I learn? -->
+<!-- Results, lessons, limitations, and next steps -->
 
 **Results:**
-- [Metric 1]: [Value]
-- [Metric 2]: [Value]
+| Metric | Value |
+|--------|-------|
+| [Metric 1] | [Value] |
+| [Metric 2] | [Value] |
 
-**What Worked:** [Summarize successes]
+**What Worked:** [Key successes]
 
-**What Didn't:** [Acknowledge limitations honestly]
+**What Didn't:** [Honest limitations and shortcomings]
 
-**What I Learned:** [Key takeaways]
+**What I Learned:** [Main takeaways from building this]
 
-**Next Steps:** [Future improvements or follow-up work]
+**Next Steps:** [Concrete improvements or follow-up work]
 ```
 
 ---
 
-## 3. Exact Steps to Add a Future Project
+## 3. Steps to Add My Next Case Study
 
-1. **Identify the problem and target audience.** Write one sentence stating the problem and one sentence naming who benefits. This becomes the project-desc paragraph in the card.
+1. **Identify the problem and target audience.** Write a one-sentence problem statement and name who benefits. This becomes the `<p class="project-desc">` paragraph in the project card in `index.html`.
 
-2. **Gather project evidence.** Collect all artifacts before writing:
-   - Screenshots or exported figures → save to `work/figures/`
-   - Architecture diagrams → save to `work/figures/` or embed inline
-   - Quantitative results (metrics, tables) → export from notebooks
+2. **Gather project evidence.** Collect all supporting artifacts before writing:
+   - Screenshots and exported charts → save to `work/figures/`
+   - Architecture or pipeline diagrams → save to `work/figures/`
+   - Quantitative results and metrics → export from notebooks in `work/notebooks/`
    - Demo recording or live URL → note the link
-   - Repository URL → confirm it is public and the README is current
+   - Repository URL → confirm the repo is public and its `README.md` is up to date
 
-3. **Write the case study using the three-beat format.** Use the copy-paste template from Section 2 above. Write the Problem, What I Did, and What Came of It sections. Save the write-up to `docs/` (e.g., `docs/QUANTUM_AUTOENCODER_CASE_STUDY.md`). If the case study warrants a full HTML page, create it at the repo root following the design patterns in `paper.html`.
+3. **Write the case study using the three-beat format.** Copy the template from Section 2. Fill in the Problem, What I Did, and What Came of It sections with real evidence. Save the Markdown write-up to `docs/` (e.g., `docs/QUANTUM_AUTOENCODER_CASE_STUDY.md`). If a full HTML write-up page is warranted, create it at the repository root following the structure of `paper.html`.
 
-4. **Add a project card to `index.html`.** Insert a new `<article class="project-card">` block inside `<section id="work">`, after the last existing `</article>` and before `</section>`. Use the existing card HTML structure:
+4. **Create the project page or content.** If the project needs its own detailed HTML page (like `paper.html`), create it at the repository root (e.g., `quantum-autoencoder.html`). Reuse the `<style>` block, `<nav class="nav-bar">`, and `<footer>` from `index.html` to maintain visual consistency. If the project only needs a portfolio card, skip this step.
+
+5. **Add the project card to the portfolio listing in `index.html`.** Insert a new `<article class="project-card">` block inside `<section id="work">`, after the last existing `</article>` and before the closing `</section>` tag. Follow this HTML structure:
+
    ```html
    <article class="project-card">
        <div class="project-header">
-           <span class="project-tag">[CATEGORY TAG]</span>
-           <span style="font-size: 0.8125rem; color: #64748B; font-weight: 500;">[Date or Status]</span>
+           <span class="project-tag">[CATEGORY]</span>
+           <span style="font-size: 0.8125rem; color: #64748B; font-weight: 500;">[Date]</span>
        </div>
        <h3 class="project-title">[Project Title]</h3>
-       <p class="project-desc">[One-paragraph description]</p>
+       <p class="project-desc">
+           [One-paragraph project description from Beat 1 — Problem]
+       </p>
+
+       <div class="metrics-grid">
+           <div class="metric-item">
+               <span class="metric-val">[Value]</span>
+               <span class="metric-lbl">[Metric Label]</span>
+           </div>
+       </div>
+
        <div class="tech-pills">
            <span class="tech-pill">[Tech 1]</span>
            <span class="tech-pill">[Tech 2]</span>
        </div>
-       <a href="[LINK]" class="project-link">[Link Text] →</a>
+
+       <a href="[CASE_STUDY_URL]" class="project-link">
+           [Link Text] →
+       </a>
    </article>
    ```
 
-5. **Link the project from navigation if it has its own page.** If you created a standalone HTML page (e.g., `quantum-autoencoder.html`), add a `<li><a href="quantum-autoencoder.html">` entry inside the `<ul class="nav-links">` block in `index.html` (lines ~719–727). Update `sitemap.xml` with a new `<url>` entry.
+6. **Match the existing typography, colors, spacing, and design system.** Use the CSS custom properties documented in Section 1: Inter font via `var(--font-family)`, accent blue `#2563EB`, card background `#FFFFFF` with `border-radius: 0.875rem`, and tech pills with `background: #F1F5F9`. Do not introduce new fonts, colors, or spacing values that break visual consistency.
 
-6. **Match the existing design system and mobile layout.** Use the same CSS variables defined in `index.html`:
-   - Font: `Inter` via `var(--font-family)`
-   - Colors: `--accent: #2563EB`, `--text-primary: #0F172A`, `--text-secondary: #334155`
-   - Card style: `--card-bg`, `--border-color`, `--shadow-sm` with `border-radius: 0.875rem`
-   - Mobile breakpoint: `@media (max-width: 640px)` — verify no horizontal overflow at 375px viewport width
+7. **Ensure mobile responsiveness.** Verify the new card renders correctly at the 375px viewport width defined by the existing `@media (max-width: 640px)` breakpoint in `index.html`. Check for: no horizontal overflow, navigation wrapping cleanly, touch targets ≥ 44px, and readable text without zooming.
 
-7. **Verify every link, image, repository, and demo.** Check each one manually:
-   - [ ] All `href` values resolve (no 404s)
-   - [ ] All images load (`work/figures/` paths are correct and files are committed)
-   - [ ] Repository link points to the correct public repo
-   - [ ] Demo URL works (or is marked N/A)
-   - [ ] `sitemap.xml` entries are valid if a new page was added
+8. **Test all images, repository links, demo links, and navigation.** Manually verify each link and asset:
+   - [ ] All `href` values resolve without 404 errors
+   - [ ] All images in `work/figures/` load correctly and are committed to Git
+   - [ ] Repository link points to the correct public GitHub repo
+   - [ ] Demo URL works or is explicitly marked N/A
+   - [ ] Internal anchor links (`#work`, `#about`, etc.) scroll correctly
+   - [ ] Any standalone page link in the nav bar works
 
-8. **Review the final case study before publishing.** Read the full card and case study write-up end to end. Confirm the three-beat format is complete, metrics are accurate, and no placeholder text remains. Commit and push only after this review pass.
+9. **Update sitemap and metadata if required.** If a standalone HTML page was created:
+   - Add a `<url>` entry in `sitemap.xml` with the correct `<loc>`, `<lastmod>`, and `<priority>` values.
+   - Ensure the new page has `<meta name="description">`, `<meta property="og:title">`, `<meta property="og:description">`, and `<link rel="canonical">` tags.
+
+10. **Review everything before publishing.** Read the full project card and case study end to end. Confirm the three-beat format is complete, all metrics are real and accurate, no placeholder text remains, and no fabricated results are included. Only then commit and push.
 
 ---
 
-## 4. Next Planned Project
+## 4. Next Project I Intend to Add
 
 **Title:** Quantum Autoencoder for Anomaly Detection in Satellite Imagery
 
-**Status:** 🟡 Planned / In Progress — not yet completed. No results, metrics, or implementation evidence are available yet.
+**Status:** 🟡 **PLANNED / IN PROGRESS**
 
-**Brief Description:** This project will explore quantum machine learning applied to anomaly detection in satellite imagery. The goal is to design and train a quantum autoencoder circuit capable of learning compressed representations of satellite image patches, then using reconstruction error to flag anomalous regions (e.g., deforestation events, infrastructure changes, or environmental anomalies). The project sits at the intersection of quantum computing, computer vision, and remote sensing.
+**Description:** A quantum machine learning project exploring the use of quantum autoencoders for anomaly detection in satellite imagery. The project will investigate whether quantum autoencoder circuits can learn compressed latent representations of satellite image patches and use reconstruction error to identify anomalous regions — such as deforestation events, urban expansion, infrastructure damage, or environmental anomalies. This sits at the intersection of quantum computing, computer vision, and remote sensing.
 
-**Anticipated Tech Stack:** Python, PennyLane or Qiskit, PyTorch/TensorFlow, satellite imagery datasets (e.g., EuroSAT, Sentinel-2), scikit-learn.
+**Anticipated Tech Stack:** Python, PennyLane or Qiskit, PyTorch or TensorFlow, satellite imagery datasets (e.g., EuroSAT, Sentinel-2), scikit-learn, Matplotlib.
 
-**When it will be added to the portfolio:** Only after the project reaches a substantial milestone with real, verified results, working code in a public repository, and actual figures or screenshots demonstrating the implementation. No placeholder card will be added to `index.html` until evidence exists.
+**What is not claimed:**
+- The project is **not complete**.
+- No accuracy, precision, recall, F1, or any other evaluation metric is available yet.
+- No experiments have been run to completion.
+- No screenshots, architecture diagrams, or demo recordings exist yet.
+- No results have been fabricated or estimated.
 
----
+**When this case study will be added to the portfolio:** Only after the project has reached a substantial milestone with:
+- Working, tested code in a public GitHub repository
+- Real evaluation results from actual experiments
+- Figures, charts, or screenshots demonstrating the implementation
+- A complete three-beat write-up based on genuine evidence
 
-## 5. Preserving Build Context
-
-I will continue using my existing **Claude Project** for all future portfolio work. This project already has established context for:
-
-- **Voice and tone:** Professional, technical, honest about results and limitations.
-- **Technology stack:** The HTML/CSS design system in `index.html` (Inter font, CSS custom properties, card-based layout, mobile-first responsive breakpoints).
-- **Personal identity details:** Name, role, university, internship at FlyRank, GitHub and LinkedIn profile URLs — all already present in the portfolio.
-- **Visual design preferences:** Color palette (`--accent: #2563EB`, `--bg: #F8FAFC`, `--text-primary: #0F172A`), card styling, section headers with uppercase titles and bottom borders, tech pill badges, metric grids.
-- **Portfolio architecture:** Single-page `index.html` with anchor sections (`#work`, `#about`, `#skills`, `#contact`), standalone pages for detailed write-ups (`paper.html`, `resume.html`), and GitHub Pages deployment.
-- **Engineering principles:** Decision-first framing, strict leakage prevention, honest claims backed by out-of-sample evaluation.
-
-By preserving this project context, I avoid rebuilding voice, design, and structural decisions from scratch every time I add a new case study. I open the existing Claude Project, paste the three-beat template, and write within the established framework.
-
-> **Note:** No secrets, API keys, tokens, credentials, or sensitive personal information are stored in or required by this context. The Claude Project contains only portfolio structure, design preferences, and writing conventions.
+No placeholder card will be added to `index.html` until all of the above exist.
 
 ---
 
-## 6. Reminder Record
+## 5. Preserving My Build Context
+
+I will continue using my existing **Claude Project** for all future portfolio development work. This project already contains my established working context for:
+
+- **Personal writing voice:** Professional, technical, and honest about both results and limitations. Direct claims backed by evidence; no vague superlatives or unsubstantiated marketing language.
+- **Technical background and stack:** Python, scikit-learn, pandas, DuckDB, HTML/CSS/JS, the design system in `index.html` (Inter font, CSS custom properties, card-based layout), and the GitHub Pages deployment workflow.
+- **Professional identity and career direction:** Computer Science student, Machine Learning Intern at FlyRank, specializing in search intelligence, position-aware ranking, and decision-support ML.
+- **Portfolio design and visual preferences:** Color palette (`--accent: #2563EB`, `--bg: #F8FAFC`, `--text-primary: #0F172A`), card styling with `border-radius: 0.875rem`, section headers with uppercase titles and bottom borders, `tech-pill` badge layout, `metrics-grid` for quantitative highlights, and mobile-first responsive design.
+- **Existing project context and case study format:** The FlyRank capstone structure (problem → methodology → results → limitations), the three-beat format (Problem → What I Did → What Came of It), and engineering principles (decision-first framing, leakage prevention, honest out-of-sample evaluation).
+
+**Purpose:** By preserving this project context, I avoid rebuilding my voice, design decisions, structural patterns, and professional framing from scratch every time I add a new case study. I open the existing Claude Project, use the three-beat template, and write within the established framework.
+
+> **Note:** No secrets, API keys, tokens, credentials, or sensitive personal information are stored in or required by this context. The Claude Project contains only portfolio structure, design preferences, writing voice conventions, and professional context.
+
+---
+
+## 6. Reminder Details
 
 | Field | Value |
 |-------|-------|
 | **Reminder Title** | Add Next Portfolio Case Study |
-| **Suggested Date** | November 4, 2026 |
-| **Message** | Review my portfolio and add the *Quantum Autoencoder for Anomaly Detection in Satellite Imagery* case study once the project has reached a substantial milestone and I have actual results, screenshots, and implementation evidence. |
+| **Reminder Date** | December 1, 2026, at 10:00 AM |
+| **Reminder Description** | Review my portfolio and add the *Quantum Autoencoder for Anomaly Detection in Satellite Imagery* case study once the project has reached a substantial milestone and I have actual results, screenshots, and implementation evidence. |
 
-**⚠️ Important:** This is a written record only. No calendar event, system notification, or automated reminder has been created. I will set the actual reminder separately using my own calendar or task management tool.
+**⚠️ Important:** This is a written reminder record inside this documentation file only. **No real calendar event, system notification, phone alert, or automated reminder has been created.** The actual reminder must be set separately using a personal calendar, task manager, or reminder application.
 
 ---
 
