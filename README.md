@@ -188,13 +188,19 @@ The analyses, models, charts, and paper claims are designed to be reproducible f
 
 ---
 
-## 13. AI Transparency
+## 13. Data Credit
+
+This project was built on the official [FlyRank](https://flyrank.ai/) ML Internship dataset. The anonymized content performance data was provided by FlyRank for educational and research purposes. All client identifiers, domain names, and private URLs have been pseudonymized or removed.
+
+---
+
+## 14. AI Transparency
 
 I built this project with AI assistance, including Claude/ChatGPT, for coding support, debugging, documentation, and structuring. I reviewed and tested the implementation, checked the evaluation outputs, and made the final decisions about the methodology and claims.
 
 ---
 
-## 14. Project Structure
+## 15. Project Structure
 
 ```text
 Machine-Learning/
@@ -228,7 +234,7 @@ Machine-Learning/
 
 ---
 
-## 15. Research Paper
+## 16. Research Paper
 
 The full technical paper detailing the research question, data contract, leakage audit, validation design, and comparative analysis is published online:
 
@@ -236,13 +242,13 @@ The full technical paper detailing the research question, data contract, leakage
 
 ---
 
-## 16. Demo
+## 17. Demo
 
 Demo video: To be added after recording.
 
 ---
 
-## 17. Next Steps
+## 18. Next Steps
 
 - **Time-Aware Validation:** Incorporate multi-snapshot time-series splits to test performance across temporal shifts.
 - **Learning-to-Rank Formulations:** Transition from point-wise regression target optimization to pairwise/listwise ranking objectives (e.g., LambdaMART).
